@@ -1,796 +1,206 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UsmanGraphics - Professional Graphic Design Services</title>
-    <style>
-        /* Global Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-        
-        body {
-            background-color: #f5f5f5;
-            color: #333;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Header Styles */
-        header {
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
-            padding: 20px 0;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        
-        .logo {
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 10px;
-        }
-        
-        .tagline {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        /* Navigation */
-        nav {
-            background-color: #333;
-            padding: 15px 0;
-        }
-        
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin: 0 15px;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        nav ul li a:hover {
-            color: #9d50bb;
-        }
-        
-        /* Hero Section */
-        .hero {
-            background: url('https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            height: 500px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-            position: relative;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0,0,0,0.6);
-        }
-        
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            padding: 0 20px;
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-        }
-        
-        .btn {
-            display: inline-block;
-            background: #9d50bb;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 30px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn:hover {
-            background: #6e48aa;
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        
-        /* About Section */
-        .section {
-            padding: 80px 0;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 50px;
-            font-size: 2.5rem;
-            color: #333;
-        }
-        
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 50px;
-        }
-        
-        .about-text {
-            flex: 1;
-        }
-        
-        .about-image {
-            flex: 1;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
-        }
-        
-        .about-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Portfolio Section */
-        .portfolio {
-            background-color: #f9f9f9;
-        }
-        
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        
-        .portfolio-item {
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-        
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
-        }
-        
-        .portfolio-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-        }
-        
-        /* Ranking Section */
-        .ranking {
-            text-align: center;
-            background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
-            color: white;
-            padding: 60px 0;
-        }
-        
-        .ranking h2 {
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-        
-        .ranking p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 30px;
-        }
-        
-        /* Reviews Section */
-        .reviews {
-            background-color: #fff;
-        }
-        
-        .review-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-        
-        .review-card {
-            background: #f9f9f9;
-            padding: 30px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-        
-        .review-header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-        
-        .reviewer-image {
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-right: 20px;
-        }
-        
-        .reviewer-name {
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
-        .review-text {
-            font-style: italic;
-            color: #555;
-        }
-        
-        /* Contact Form */
-        .contact-form {
-            background-color: #f9f9f9;
-            padding: 50px;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #333;
-        }
-        
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            border-color: #6e48aa;
-            outline: none;
-        }
-        
-        .form-group textarea {
-            height: 150px;
-        }
-        
-        /* Photoshop Basics Section */
-        .photoshop-basics {
-            background-color: #fff;
-        }
-        
-        .shortcut-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        
-        .shortcut-card {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
-        }
-        
-        .shortcut-key {
-            font-weight: 700;
-            color: #6e48aa;
-        }
-        
-        /* Footer */
-        footer {
-            background-color: #333;
-            color: white;
-            padding: 50px 0 20px;
-            text-align: center;
-        }
-        
-        .social-links {
-            margin: 20px 0;
-        }
-        
-        .social-links a {
-            color: white;
-            margin: 0 10px;
-            font-size: 1.5rem;
-            transition: color 0.3s;
-        }
-        
-        .social-links a:hover {
-            color: #9d50bb;
-        }
-        
-        .copyright {
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid #555;
-            font-size: 0.9rem;
-            opacity: 0.8;
-        }
-        
-        /* Form Status Styles */
-        .form-status {
-            margin-top: 1rem;
-            padding: 1rem;
-            border-radius: 4px;
-            text-align: center;
-        }
-        
-        .form-status.sending {
-            background: #fff3cd;
-            color: #856404;
-        }
-        
-        .form-status.success {
-            background: #d4edda;
-            color: #155724;
-        }
-        
-        .form-status.error {
-            background: #f8d7da;
-            color: #721c24;
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 768px) {
-            .about-content {
-                flex-direction: column;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .contact-form {
-                padding: 30px 20px;
-            }
-        }
-    </style>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <title>Freshers AI / Database Batch 2025</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: linear-gradient(135deg, #4facfe, #00f2fe); color: #222; }
+    .logo { font-size: 32px; font-weight: bold; color: #0056b3; letter-spacing: 2px; text-transform: uppercase; position: relative; display: inline-block; margin-bottom: 20px; }
+    .logo span { color: #f4b400; }
+    .logo::after { content: "🎓"; font-size: 28px; position: absolute; right: -35px; top: -5px; }/* ===== Login Page ===== */
+.login-box { background: white; max-width: 350px; margin: 100px auto; padding: 25px; border-radius: 12px; box-shadow: 0 6px 10px rgba(0,0,0,0.2); text-align: center; }
+.login-box h2 { margin: 15px 0; color: #333; }
+.login-box input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #ccc; border-radius: 8px; font-size: 14px; }
+.login-box button { background: #007bff; color: white; padding: 12px; border: none; width: 100%; border-radius: 8px; cursor: pointer; font-size: 16px; }
+.login-box button:hover { background: #0056b3; }
+.error { color: red; margin-top: 10px; }
+
+/* ===== Dashboard ===== */
+.dashboard { display: none; padding: 20px; text-align: center; }
+h1 { font-size: 24px; margin-bottom: 5px; color: #fff; text-shadow: 1px 1px 3px rgba(0,0,0,0.3); }
+h2 { margin: 15px 0 10px; font-size: 18px; color: #fff; }
+.btn { display: inline-block; background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 16px; margin: 8px; text-decoration: none; }
+.btn:hover { opacity: 0.9; }
+.btn-lms { background: #007bff; }
+.btn-quiz { background: #800000; }
+
+table { width: 100%; border-collapse: collapse; margin-top: 20px; background: white; border-radius: 10px; overflow: hidden; }
+th, td { border: 1px solid #ddd; padding: 8px; font-size: 14px; }
+th { background: #007bff; color: white; }
+tr:nth-child(even) { background: #f9f9f9; }
+
+.notice-board { background: white; border-radius: 10px; padding: 15px; margin-top: 20px; text-align: left; max-width: 600px; margin-left: auto; margin-right: auto; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+.notice-board h3 { color: #007bff; margin-bottom: 10px; }
+.notice { padding: 8px; border-left: 4px solid #007bff; margin-bottom: 8px; background: #f9f9f9; }
+
+.counter { margin-top: 20px; font-weight: bold; font-size: 18px; color: #fff; }
+
+/* ===== Quiz Section ===== */
+.quiz-section { display: none; max-width: 900px; margin: 20px auto; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); text-align: center; }
+.quiz-section h2 { color: #333; }
+.question { margin-bottom: 20px; text-align: left; }
+.options label { display: block; margin: 6px 0; cursor: pointer; }
+button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 6px; cursor: pointer; margin: 8px; }
+button:hover { background: #0056b3; }
+#result { display: none; margin-top: 30px; text-align: center; }
+.tag { font-size: 20px; margin-top: 15px; font-weight: bold; color: #800000; }
+canvas { margin-top: 20px; }
+.progress { width: 100%; background: #ddd; border-radius: 6px; margin: 15px 0; height: 18px; overflow: hidden; }
+.progress-bar { height: 18px; width: 0; background: #007bff; transition: width 0.3s; }
+.contact { margin-top: 25px; text-align: center; }
+.contact a { background: #25D366; color: white; padding: 10px 20px; border-radius: 6px; text-decoration: none; font-weight: bold; }
+.contact a:hover { background: #1ebd58; }
+.name-input { text-align: center; margin: 20px 0; }
+.name-input input { padding: 8px; border: 1px solid #ccc; border-radius: 6px; width: 60%; }
+
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <div class="logo">UsmanGraphics</div>
-            <div class="tagline">Transforming Ideas into Visual Masterpieces</div>
-        </div>
-    </header>
-    
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#reviews">Reviews</a></li>
-                <li><a href="#photoshop">Photoshop Basics</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
-    </nav>
-    
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h1>Professional Graphic Design Services</h1>
-            <p>Elevate your brand with stunning visuals crafted by one of Khushab's top graphic designers</p>
-            <a href="#contact" class="btn">Get a Quote</a>
-        </div>
-    </section>
-    
-    <!-- About Section -->
-    <section id="about" class="section">
-        <div class="container">
-            <h2 class="section-title">About UsmanGraphics</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>Hi, I'm Usman Kalera, a passionate graphic designer based in Jauharabad District Khushab, Pakistan. With years of experience in the creative industry, I specialize in creating visually compelling designs that communicate brand messages effectively.</p>
-                    <p>My expertise spans across logo design, branding, social media graphics, packaging design, and more. I believe in the power of design to transform businesses and create memorable experiences for customers.</p>
-                    <p>What sets me apart is my attention to detail, creative problem-solving approach, and commitment to delivering designs that not only look great but also serve their strategic purpose. Every project is an opportunity to create something unique and impactful.</p>
-                    <div class="contact-info">
-                        <p><i class="fas fa-phone"></i> 0318-7579301</p>
-                        <p><i class="fas fa-map-marker-alt"></i> Jauharabad District Khushab, Pakistan</p>
-                    </div>
-                </div>
-                <div class="about-image">
-                    <a href="https://ibb.co/Y4yHX1dT"><img src="https://i.ibb.co/20sGSCMY/your-image.png" alt="usmankalera" border="0"></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Portfolio Section -->
-    <section id="portfolio" class="section portfolio">
-        <div class="container">
-            <h2 class="section-title">My Work</h2>
-            <div class="portfolio-grid">
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Brand Identity Design">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Logo Design">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581094794320-4371d1a0d0e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Packaging Design">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Social Media Graphics">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581291518633-83b4ebd1d83e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Poster Design">
-                </div>
-                <div class="portfolio-item">
-                    <img src="https://images.unsplash.com/photo-1581094794320-4371d1a0d0e6?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Business Card Design">
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Ranking Section -->
-    <section class="ranking">
-        <div class="container">
-            <h2>Top Graphic Designer in Khushab</h2>
-            <p>Recognized as one of the leading graphic designers in the Khushab region, Usman Kalera has consistently delivered exceptional design solutions that help businesses stand out in competitive markets.</p>
-            <p>With a perfect blend of creativity and technical expertise, UsmanGraphics has earned its place among the top design studios in the area.</p>
-        </div>
-    </section>
-    
-    <!-- Reviews Section -->
-    <section id="reviews" class="section reviews">
-        <div class="container">
-            <h2 class="section-title">Client Testimonials</h2>
-            <div class="review-grid">
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Client" class="reviewer-image">
-                        <div>
-                            <div class="reviewer-name">Ahmed Raza</div>
-                            <div>CEO, TechSolutions</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "Working with Usman was an absolute pleasure. He understood our brand vision perfectly and delivered a logo that exceeded our expectations. His attention to detail and creative approach made all the difference."
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Client" class="reviewer-image">
-                        <div>
-                            <div class="reviewer-name">Fatima Khan</div>
-                            <div>Marketing Director, StyleHub</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "UsmanGraphics transformed our social media presence with stunning visuals that perfectly captured our brand aesthetic. The designs helped us increase engagement by over 200%. Highly recommended!"
-                    </div>
-                </div>
-                <div class="review-card">
-                    <div class="review-header">
-                        <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Client" class="reviewer-image">
-                        <div>
-                            <div class="reviewer-name">Bilal Ahmed</div>
-                            <div>Owner, FoodExpress</div>
-                        </div>
-                    </div>
-                    <div class="review-text">
-                        "From packaging to menu design, Usman delivered exceptional work that helped our restaurant stand out. His designs not only look great but have directly contributed to increased sales. Professional and talented!"
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Photoshop Basics Section -->
-    <section id="photoshop" class="section photoshop-basics">
-        <div class="container">
-            <h2 class="section-title">Photoshop Basics & Shortcut Keys</h2>
-            <p>As a professional graphic designer, mastering Photoshop is essential. Here are some fundamental concepts and time-saving shortcuts:</p>
-            
-            <h3 style="margin: 30px 0 20px;">Essential Photoshop Tools</h3>
-            <ul style="margin-bottom: 30px; padding-left: 20px;">
-                <li><strong>Move Tool (V):</strong> For selecting and moving layers</li>
-                <li><strong>Marquee Tools (M):</strong> For making rectangular or elliptical selections</li>
-                <li><strong>Lasso Tools (L):</strong> For freehand selections</li>
-                <li><strong>Quick Selection Tool (W):</strong> For making selections based on color and texture</li>
-                <li><strong>Crop Tool (C):</strong> For cropping images</li>
-                <li><strong>Brush Tool (B):</strong> For painting and drawing</li>
-                <li><strong>Clone Stamp Tool (S):</strong> For copying pixels from one area to another</li>
-                <li><strong>Eraser Tool (E):</strong> For erasing parts of a layer</li>
-                <li><strong>Gradient Tool (G):</strong> For creating gradient fills</li>
-                <li><strong>Pen Tool (P):</strong> For creating precise paths and shapes</li>
-            </ul>
-            
-            <h3 style="margin: 30px 0 20px;">Must-Know Photoshop Shortcuts</h3>
-            <div class="shortcut-grid">
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + N</div>
-                    <p>Create a new document</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + O</div>
-                    <p>Open an existing file</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + S</div>
-                    <p>Save current file</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Shift + S</div>
-                    <p>Save As</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Z</div>
-                    <p>Undo last action</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Alt + Z</div>
-                    <p>Step backward (multiple undo)</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + T</div>
-                    <p>Free Transform</p>
-                </div>
-                <div class="shortcut-card">
-                <div class="shortcut-key">Ctrl + G</div>
-                    <p>Group layers</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + E</div>
-                    <p>Merge selected layers</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + D</div>
-                    <p>Deselect</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + A</div>
-                    <p>Select all</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + + / -</div>
-                    <p>Zoom in/out</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Spacebar</div>
-                    <p>Hand tool (temporary)</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">B</div>
-                    <p>Brush tool</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">E</div>
-                    <p>Eraser tool</p>
-                </div>
-            </div>
-            
-            <h3 style="margin: 30px 0 20px;">Layer Management Shortcuts</h3>
-            <div class="shortcut-grid">
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Shift + N</div>
-                    <p>Create new layer</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + [ or ]</div>
-                    <p>Move layer down/up</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Shift + [ or ]</div>
-                    <p>Move layer to bottom/top</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Alt + [ or ]</div>
-                    <p>Select next/previous layer</p>
-                </div>
-            </div>
-            
-            <h3 style="margin: 30px 0 20px;">Selection Shortcuts</h3>
-            <div class="shortcut-grid">
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Click layer thumbnail</div>
-                    <p>Load layer as selection</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Ctrl + Shift + I</div>
-                    <p>Inverse selection</p>
-                </div>
-                <div class="shortcut-card">
-                    <div class="shortcut-key">Shift + F6</div>
-                    <p>Feather selection</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Contact Form Section -->
-    <section id="contact" class="section">
-        <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <form id="contactForm" class="contact-form" action="https://formspree.io/f/mrbkjezl" method="POST">
-                <!-- Formspree Configuration -->
-                <input type="hidden" name="_subject" value="New message from UsmanGraphics">
-                <input type="hidden" name="_language" value="en">
-                <input type="text" name="_gotcha" style="display:none"> <!-- Anti-spam field -->
-                
-                <!-- Form Fields -->
-                <div class="form-group">
-                    <label for="name">Full Name</label>
-                    <input type="text" id="name" name="name" required placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" required placeholder="your@email.com">
-                </div>
-                
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-                    <input type="tel" id="phone" name="phone" placeholder="+92 318 7579301">
-                </div>
-                
-                <div class="form-group">
-                    <label for="service">Service Needed</label>
-                    <select id="service" name="service" required>
-                        <option value="" disabled selected>Select a service</option>
-                        <option value="logo-design">Logo Design</option>
-                        <option value="branding">Brand Identity</option>
-                        <option value="social-media">Social Media Graphics</option>
-                        <option value="print">Print Design</option>
-                        <option value="other">Other</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Project Details</label>
-                    <textarea id="message" name="message" rows="5" required placeholder="Describe your project..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label for="files">Attach Files (Optional)</label>
-                    <input type="file" id="files" name="files" multiple>
-                </div>
-                
-                <!-- Submit Button -->
-                <button type="submit" class="btn">
-                    <i class="fas fa-paper-plane"></i> Send Message
-                </button>
-                
-                <!-- Success Message Container -->
-                <div id="form-status" class="form-status"></div>
-            </form>
-        </div>
-    </section>
-    
-    <!-- Data and Policies Section -->
-    <section class="section" style="background-color: #f9f9f9;">
-        <div class="container">
-            <h2 class="section-title">Data & Policies</h2>
-            <div style="max-width: 800px; margin: 0 auto;">
-                <h3 style="margin-bottom: 15px;">Privacy Policy</h3>
-                <p>We respect your privacy and are committed to protecting your personal data. Any information collected through our contact form will only be used to respond to your inquiry and will not be shared with third parties without your consent.</p>
-                
-                <h3 style="margin: 25px 0 15px;">Project Process</h3>
-                <ol style="margin-left: 20px; margin-bottom: 20px;">
-                    <li><strong>Initial Consultation:</strong> We discuss your project requirements and goals</li>
-                    <li><strong>Proposal:</strong> We provide a detailed project proposal with timeline and cost</li>
-                    <li><strong>Deposit:</strong> A 50% deposit is required to begin work</li>
-                    <li><strong>Design Phase:</strong> We create initial concepts for your review</li>
-                    <li><strong>Revisions:</strong> We refine the design based on your feedback</li>
-                    <li><strong>Final Approval:</strong> You approve the final design</li>
-                    <li><strong>Delivery:</strong> We deliver all final files and remaining payment is due</li>
-                </ol>
-                
-                <h3 style="margin: 25px 0 15px;">Payment Terms</h3>
-                <p>We accept payments via bank transfer, JazzCash, and EasyPaisa. A 50% deposit is required to begin work, with the remaining 50% due upon project completion.</p>
-                
-                <h3 style="margin: 25px 0 15px;">Revision Policy</h3>
-                <p>Each project includes 2 rounds of revisions. Additional revisions may be subject to additional fees depending on the scope of changes.</p>
-                
-                <h3 style="margin: 25px 0 15px;">Copyright</h3>
-                <p>All final designs become the property of the client upon full payment. UsmanGraphics retains the right to display completed work in our portfolio unless otherwise agreed upon.</p>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <div class="logo" style="color: white; margin-bottom: 20px;">UsmanGraphics</div>
-            <div class="social-links">
-                <a href="https://www.instagram.com/usmankalera0?igsh=aDFkdXJka2JqNjhn" target="_blank"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@usman_graphics2?_t=ZT-8xkA37WPrcN&_r=1" target="_blank"><i class="fab fa-tiktok"></i></a>
-                <a href="tel:03187579301"><i class="fas fa-phone"></i></a>
-            </div>
-            <div class="contact-info" style="margin: 20px 0;">
-                <p>Jauharabad District Khushab, Pakistan</p>
-                <p>Phone: 0318-7579301</p>
-            </div>
-            <div class="copyright">
-                &copy; 2023 UsmanGraphics. All Rights Reserved.
-            </div>
-        </div>
-    </footer>
-    
-    <script>
-        // Form submission handling
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
-            e.preventDefault();
-            const form = e.target;
-            const status = document.getElementById('form-status');
-            status.innerHTML = 'Sending message...';
-            status.className = 'form-status sending';
-            
-            try {
-                const response = await fetch(form.action, {
-                    method: 'POST',
-                    body: new FormData(form),
-                    headers: {
-                        'Accept': 'application/json'
-                    }
-                });
-                
-                if (response.ok) {
-                    status.innerHTML = 'Message sent successfully!';
-                    status.className = 'form-status success';
-                    form.reset();
-                } else {
-                    throw new Error('Form submission failed');
-                }
-            } catch (error) {
-                status.innerHTML = 'Oops! There was a problem. Please try again or contact me directly at kalerausman@gmail.com';
-                status.className = 'form-status error';
-                console.error('Form error:', error);
-            }
-        });
-    </script>
-</body>
+  <!-- ===== Login Page ===== -->
+  <div id="loginPage" class="login-box">
+    <div class="logo">Superior <span>University</span></div>
+    <h2>Login - Freshers 2025</h2>
+    <input type="text" id="username" placeholder="Enter Name or Roll No">
+    <input type="password" id="password" placeholder="Enter Password">
+    <button onclick="login()">Login</button>
+    <p class="error" id="errorMsg"></p>
+  </div>  <!-- ===== Dashboard ===== -->  <div id="dashboard" class="dashboard">
+    <div class="logo">Superior <span>University</span></div>
+    <h1>📚 Freshers AI / Database Batch 2025</h1>
+    <h2>Welcome to our official group app 🎉</h2><a class="btn" href="https://chat.whatsapp.com/EeGHBtQP3pwAUAg57pH6NY" target="_blank">👉 Join WhatsApp Group</a>
+<a class="btn btn-lms" href="https://mylms.superior.edu.pk" target="_blank">🎓 Open University LMS</a>
+<a class="btn btn-quiz" onclick="openQuiz()">📝 Take Quiz</a>
+
+<!-- Notice Board -->
+<div class="notice-board">
+  <h3>📢 Admin Notice Board</h3>
+  <div class="notice">🗓️ Orientation on Aug 20, 2025 at Auditorium</div>
+  <div class="notice">⚡ LMS portal open for attendance & feedback</div>
+  <div class="notice">📌 Web Development classes from Sep 2</div>
+</div>
+
+<h2>📅 Training Schedule</h2>
+<table>
+  <tr><th>Date</th><th>Regular Session</th><th>Contextual Training</th></tr>
+  <tr><td>Aug 20</td><td>Orientation</td><td>-</td></tr>
+  <tr><td>Aug 21</td><td>Emotional Intelligence</td><td>Email, ERP, LMS, Zoom</td></tr>
+  <tr><td>Aug 22</td><td>-</td><td>How to build AI Chatbots</td></tr>
+  <tr><td>Aug 25</td><td>Character Mastery 1</td><td>MS Word</td></tr>
+  <tr><td>Aug 26</td><td>Character Mastery 2</td><td>MS PowerPoint</td></tr>
+  <tr><td>Aug 27</td><td>Character Mastery 3</td><td>MS Excel</td></tr>
+  <tr><td>Aug 28</td><td>Character Mastery 4</td><td>MS Excel</td></tr>
+  <tr><td>Aug 29</td><td>Understanding AI</td><td>Sports & Cultural Slot</td></tr>
+  <tr><td>Sep 1</td><td>Leadership & Teamwork</td><td>Scratch Programming</td></tr>
+  <tr><td>Sep 2</td><td>Leadership & Teamwork 2</td><td>Web Dev (HTML)</td></tr>
+  <tr><td>Sep 3</td><td>Entrepreneurial Mindset</td><td>Web Dev (Bootstrap)</td></tr>
+  <tr><td>Sep 4</td><td>Power of Belief</td><td>Web Dev (CSS)</td></tr>
+</table>
+
+<!-- Visitor Counter -->
+<div class="counter">👀 Visitors: <span id="counter">Loading...</span></div>
+
+  </div>  <!-- ===== Quiz Section ===== -->  <div id="quizSection" class="quiz-section">
+    <h2>Strength & Decision Ability Quiz</h2>
+    <div class="name-input">
+      <input type="text" id="userName" placeholder="Enter your name before starting">
+    </div>
+    <div class="progress"><div class="progress-bar" id="progressBar"></div></div>
+    <form id="quizForm">
+      <div id="questions"></div>
+      <button type="submit">Submit Quiz</button>
+    </form>
+    <div id="result">
+      <h3>Your Results</h3>
+      <canvas id="resultChart"></canvas>
+      <div class="tag" id="tagLine"></div>
+      <button id="downloadPDF">Download PDF</button>
+      <div class="contact">
+        <p>Need Guidance? Contact us on WhatsApp:</p>
+        <a href="https://wa.me/923187579301" target="_blank">Chat on WhatsApp</a>
+      </div>
+    </div>
+  </div>  <audio id="clickSound">
+    <source src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" type="audio/ogg">
+  </audio>  <script>
+    function login(){
+      const pass=document.getElementById("password").value.trim();
+      const errorMsg=document.getElementById("errorMsg");
+      if(pass==="superior123"){
+        document.getElementById("loginPage").style.display="none";
+        document.getElementById("dashboard").style.display="block";
+        fetch("https://api.countapi.xyz/hit/superior-freshers-2025/visits").then(res=>res.json()).then(res=>{document.getElementById("counter").innerText=res.value;});
+      } else { errorMsg.textContent="❌ Wrong password. Hint: superior123"; }
+    }
+
+    function openQuiz(){
+      document.getElementById("dashboard").style.display="none";
+      document.getElementById("quizSection").style.display="block";
+    }
+
+    const questions=[
+      { q:"You face a sudden setback. What do you do?", options:["Stay calm and plan again|strength","Get frustrated but keep trying|strength","Give up|none"]},
+      { q:"You have to choose between a safe job and a risky business.", options:["Choose safe job|decision","Choose risky business after analysis|decision","Avoid making decision|none"]},
+      { q:"How do you react to criticism?", options:["Use it to improve|strength","Ignore completely|none","Feel discouraged|none"]},
+      { q:"A team is waiting for your instructions in a crisis.", options:["Quickly decide best option|decision","Delay until more info|decision","Let others decide|none"]},
+      { q:"When working on a long project, how do you keep motivated?", options:["Break into smaller goals|strength","Rely on external push|none","Lose focus easily|none"]}
+    ];
+
+    const quizDiv=document.getElementById("questions");
+    const clickSound=document.getElementById("clickSound");
+    let chartInstance;
+
+    questions.forEach((item,index)=>{
+      const div=document.createElement("div");
+      div.classList.add("question");
+      div.innerHTML=`<p><b>Q${index+1}: ${item.q}</b></p>`;
+      const opts=document.createElement("div");
+      opts.classList.add("options");
+      item.options.forEach((opt,i)=>{
+        const [text,type]=opt.split("|");
+        opts.innerHTML+=`<label><input type='radio' name='q${index}' value='${type}'> ${text}</label>`;
+      });
+      div.appendChild(opts);
+      quizDiv.appendChild(div);
+    });
+
+    document.addEventListener("change",(e)=>{ if(e.target.type==="radio") clickSound.play(); updateProgress(); });
+    function updateProgress(){ let answered=0; questions.forEach((q,i)=>{ if(document.querySelector(`input[name='q${i}']:checked`)) answered++; }); document.getElementById("progressBar").style.width=((answered/questions.length)*100)+"%"; }
+
+    document.getElementById("quizForm").addEventListener("submit",function(e){
+      e.preventDefault();
+      let strength=0,decision=0;
+      questions.forEach((q,i)=>{
+        const ans=document.querySelector(`input[name='q${i}']:checked`);
+        if(ans){ if(ans.value==="strength") strength++; if(ans.value==="decision") decision++; }
+      });
+      document.getElementById("result").style.display="block";
+      let tagLine="";
+      if(strength>decision&&strength>=3) tagLine="You are Extremely Resilient & Strong!";
+      else if(decision>strength&&decision>=3) tagLine="You are an Excellent Decision Maker!";
+      else if(strength===decision) tagLine="You are Balanced with Strength & Decision Skills!";
+      else tagLine="You need to improve both Resilience & Decision Ability.";
+      document.getElementById("tagLine").textContent=tagLine;
+
+      const ctx=document.getElementById("resultChart").getContext("2d");
+      if(chartInstance) chartInstance.destroy();
+      chartInstance=new Chart(ctx,{ type:'radar', data:{ labels:['Strength','Decision Ability'], datasets:[{ label:'Your Abilities', data:[strength,decision], backgroundColor:'rgba(0,123,255,0.2)', borderColor:'#007bff', borderWidth:2 }] }, options:{ scales:{ r:{ suggestedMin:0, suggestedMax:questions.length/2 } } } });
+    });
+
+    document.getElementById("downloadPDF").addEventListener("click",async()=>{
+      const { jsPDF }=window.jspdf;
+      const doc=new jsPDF();
+      const userName=document.getElementById("userName").value||"Anonymous";
+      const date=new Date().toLocaleDateString();
+      doc.setFontSize(18); doc.text("Superior University Lahore – Gold Campus",20,20);
+      doc.setFontSize(14); doc.text(`Name: ${userName}`,20,40); doc.text(`Date: ${date}`,20,50);
+      doc.text(document.getElementById("tagLine").textContent,20,70);
+      const chartCanvas=document.getElementById("resultChart");
+      const chartImage=await html2canvas(chartCanvas);
+      const chartData=chartImage.toDataURL("image/png");
+      doc.addImage(chartData,'PNG',20,80,160,120);
+      doc.save("Quiz_Result.pdf");
+    });
+  </script></body>
 </html>
-```
